@@ -49,7 +49,7 @@ def run(
     scripts_dir = PROJECT_ROOT / "output" / "scripts"
     audio_dir = PROJECT_ROOT / "output" / "audio"
     data_dir = PROJECT_ROOT / "data"
-    feed_path = str(PROJECT_ROOT / "output" / "feed.xml")
+    feed_path = str(PROJECT_ROOT / "feed.xml")
     config_path = str(PROJECT_ROOT / "config" / "sources.yaml")
     prompt_path = str(PROJECT_ROOT / "prompts" / "system_briefing_v1.md")
 
