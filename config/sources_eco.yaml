@@ -1,0 +1,92 @@
+feeds:
+
+  # --- Québec / Canada — Affaires & Marchés ---
+  - url: https://news.google.com/rss/search?q=site:lesaffaires.com&hl=fr&gl=CA&ceid=CA:fr
+    source: Les Affaires
+    region: QC
+    theme: Économie
+    no_scrape: true
+
+  - url: https://news.google.com/rss/search?q=site:lapresse.ca+affaires+OR+argent+OR+bourse&hl=fr&gl=CA&ceid=CA:fr
+    source: La Presse Affaires
+    region: QC
+    theme: Économie
+    no_scrape: true
+
+  - url: https://www.bnnbloomberg.ca/rss
+    source: BNN Bloomberg
+    region: Canada
+    theme: Économie
+    no_scrape: true
+
+  - url: https://news.google.com/rss/search?q=site:financeandinvestment.ca+OR+site:finance-investissement.com&hl=fr&gl=CA&ceid=CA:fr
+    source: Finance et Investissement
+    region: QC
+    theme: Économie
+    no_scrape: true
+
+  # --- Finance mondiale ---
+  - url: https://news.google.com/rss/search?q=site:bloomberg.com+markets+OR+economy+OR+stocks&hl=en&gl=CA&ceid=CA:en
+    source: Bloomberg
+    region: International
+    theme: Économie
+    no_scrape: true
+
+  - url: https://news.google.com/rss/search?q=site:ft.com+economy+OR+markets+OR+business&hl=en&gl=CA&ceid=CA:en
+    source: Financial Times
+    region: International
+    theme: Économie
+    no_scrape: true
+
+  - url: https://news.google.com/rss/search?q=site:wsj.com+markets+OR+economy+OR+finance&hl=en&gl=CA&ceid=CA:en
+    source: Wall Street Journal
+    region: International
+    theme: Économie
+    no_scrape: true
+
+  - url: https://news.google.com/rss/search?q=site:reuters.com+business+OR+finance+OR+markets&hl=en&gl=CA&ceid=CA:en
+    source: Reuters Business
+    region: International
+    theme: Économie
+    no_scrape: true
+
+  # --- Crypto ---
+  - url: https://www.coindesk.com/arc/outboundfeeds/rss/
+    source: CoinDesk
+    region: International
+    theme: Crypto
+    no_scrape: true
+
+  - url: https://cointelegraph.com/rss
+    source: CoinTelegraph
+    region: International
+    theme: Crypto
+    no_scrape: true
+
+  - url: https://decrypt.co/feed
+    source: Decrypt
+    region: International
+    theme: Crypto
+    no_scrape: true
+
+  # --- Tech & Compagnies ---
+  - url: https://techcrunch.com/feed/
+    source: TechCrunch
+    region: International
+    theme: Tech
+    no_scrape: true
+
+  - url: https://www.theverge.com/rss/index.xml
+    source: The Verge
+    region: International
+    theme: Tech
+    no_scrape: true
+
+  - url: http://feeds.arstechnica.com/arstechnica/index
+    source: Ars Technica
+    region: International
+    theme: Tech
+    no_scrape: true
+
+min_text_length: 60
+max_per_feed: 8
