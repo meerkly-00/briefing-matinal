@@ -24,7 +24,7 @@ def _register_namespaces():
     ET.register_namespace("content", _CONTENT_NS)
 
 
-def _create_channel(title: str, description: str, base_url: str, author: str) -> Element:
+def _create_channel(title: str, description: str, base_url: str, author: str, artwork_url: str) -> Element:
     _register_namespaces()
     rss = Element("rss", {"version": "2.0"})
     channel = SubElement(rss, "channel")
@@ -35,6 +35,12 @@ def _create_channel(title: str, description: str, base_url: str, author: str) ->
     SubElement(channel, f"{{{_ITUNES_NS}}}author").text = author
     SubElement(channel, f"{{{_ITUNES_NS}}}explicit").text = "no"
     SubElement(channel, f"{{{_ITUNES_NS}}}category", {"text": "News"})
+    if artwork_url:
+        SubElement(channel, f"{{{_ITUNES_NS}}}image", {"href": artwork_url})
+        img = SubElement(channel, "image")
+        SubElement(img, "url").text = artwork_url
+        SubElement(img, "title").text = title
+        SubElement(img, "link").text = base_url
     return rss
 
 
@@ -42,11 +48,14 @@ def _load_or_create(feed_path: str) -> Element:
     if Path(feed_path).exists():
         _register_namespaces()
         return parse_xml(feed_path).getroot()
+    base_url = os.getenv("PODCAST_BASE_URL", "http://localhost:8000")
+    artwork_url = os.getenv("PODCAST_ARTWORK_URL", f"{base_url}/artwork.jpg")
     return _create_channel(
         title=os.getenv("PODCAST_TITLE", "Briefing matinal"),
         description=os.getenv("PODCAST_DESCRIPTION", "Briefing radio matinal québécois généré par IA."),
-        base_url=os.getenv("PODCAST_BASE_URL", "http://localhost:8000"),
+        base_url=base_url,
         author=os.getenv("PODCAST_AUTHOR", ""),
+        artwork_url=artwork_url,
     )
 
 
@@ -87,6 +96,9 @@ def add_episode(
     SubElement(item, f"{{{_ITUNES_NS}}}summary").text = description
     if episode_number is not None:
         SubElement(item, f"{{{_ITUNES_NS}}}episode").text = str(episode_number)
+    artwork_url = os.getenv("PODCAST_ARTWORK_URL", "")
+    if artwork_url:
+        SubElement(item, f"{{{_ITUNES_NS}}}image", {"href": artwork_url})
 
     # Insère en tête de channel (épisode le plus récent en premier)
     channel.insert(list(channel).index(channel.find("item") or item), item) if channel.find("item") is not None else channel.append(item)

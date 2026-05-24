@@ -35,6 +35,9 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PODCAST_TITLE: Briefing matinal
           PODCAST_DESCRIPTION: Briefing radio matinal francophone québécois.
+          PODCAST_BASE_URL: https://meerkly-00.github.io/briefing-matinal
+          PODCAST_ARTWORK_URL: https://meerkly-00.github.io/briefing-matinal/artwork.jpg
+          PODCAST_AUTHOR: Briefing matinal
           CLAUDE_MODEL: claude-sonnet-4-6
           TTS_PROVIDER: openai
           TTS_MODEL: tts-1
