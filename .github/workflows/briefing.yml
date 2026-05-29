@@ -42,7 +42,7 @@ jobs:
           PODCAST_TITLE: Presto
           PODCAST_DESCRIPTION: "Briefing matinal francophone québécois : actualité, politique, économie, marchés et tech en 15 à 18 minutes. Les épisodes restent disponibles 7 jours."
           PODCAST_BASE_URL: https://prestopodcast.online
-          PODCAST_ARTWORK_URL: https://www.prestopodcast.online/artwork.jpg
+          PODCAST_ARTWORK_URL: https://www.prestopodcast.online/artwork-v2.jpg
           PODCAST_AUTHOR: Presto
           EPISODE_TITLE_PREFIX: "Presto — édition du"
           SYSTEM_PROMPT_FILE: prompts/system_presto_v1.md
