@@ -10,9 +10,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from .aggregate import aggregate
-from .generate import generate_script, load_system_prompt, load_recent_context, save_context
+from .generate import generate_script, load_system_prompt, load_recent_context, save_context, _format_date_fr, _MOIS
 from .tts import generate_audio
-from .feed import add_episode
+from .feed import add_episode, prune_old_episodes
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +44,7 @@ def run(
 
     duree_cible = duree_cible or int(os.getenv("BRIEFING_DUREE_CIBLE", 12))
     since_hours = since_hours or int(os.getenv("BRIEFING_FENETRE_HEURES", 24))
+    keep_days   = int(os.getenv("FEED_KEEP_DAYS", 7))
 
     date_slug = date.strftime("%Y-%m-%d")
     scripts_dir = PROJECT_ROOT / "output" / "scripts"
@@ -56,7 +57,7 @@ def run(
     prompt_path = os.getenv("SYSTEM_PROMPT_FILE", str(PROJECT_ROOT / "prompts" / "system_briefing_v1.md"))
     audio_prefix        = os.getenv("AUDIO_PREFIX", "")
     context_file        = os.getenv("CONTEXT_FILE", "context.json")
-    episode_title_pfx   = os.getenv("EPISODE_TITLE_PREFIX", "Briefing du")
+    episode_title_pfx   = os.getenv("EPISODE_TITLE_PREFIX", "Presto — édition du")
 
     result: dict = {"date": date_slug}
 
@@ -89,7 +90,6 @@ def run(
     script_path.write_text(script_xml, encoding="utf-8")
     result["script_path"] = str(script_path)
 
-    from .generate import _format_date_fr
     save_context(script_xml, _format_date_fr(date), str(data_dir), context_file=context_file)
 
     if skip_tts:
@@ -112,9 +112,13 @@ def run(
     duration_sec = int(word_count / 150 * 60)
     existing_mp3s = sorted(audio_dir.glob("*.mp3"))
 
+    # Titre en français : "Presto — édition du 28 mai 2026"
+    mois_fr = _MOIS[date.month - 1]
+    titre_episode = f"{episode_title_pfx} {date.day} {mois_fr} {date.year}"
+
     add_episode(
         feed_path=feed_path,
-        title=f"{episode_title_pfx} {date.strftime('%d %B %Y')}",
+        title=titre_episode,
         audio_url=_audio_url(audio_filename),
         audio_size_bytes=audio_size,
         script_xml=script_xml,
@@ -123,6 +127,12 @@ def run(
         episode_number=len(existing_mp3s),
     )
     result["feed_path"] = feed_path
+
+    # 6. Purge des épisodes plus vieux que keep_days (défaut 7)
+    if keep_days > 0:
+        logger.info("=== Étape 6 : Purge des épisodes > %d jours ===", keep_days)
+        pruned = prune_old_episodes(feed_path, keep_days=keep_days, now=date)
+        result["pruned_episodes"] = pruned
 
     logger.info("=== Briefing terminé. ===")
     return result
