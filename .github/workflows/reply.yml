@@ -1,0 +1,45 @@
+name: Presto — reply watcher
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # toutes les 30 min, 24h/24
+  workflow_dispatch:           # bouton Run manuel
+
+permissions:
+  contents: write
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Chercher et répondre à l'actu
+        run: python tools/reply_watcher.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          CLAUDE_MODEL: claude-haiku-4-5-20251001
+          REPLY_MAX_PER_RUN: "2"
+          REPLY_MAX_PER_DAY: "30"
+          REPLY_MIN_LIKES: "3"
+
+      - name: Sauvegarder l'état
+        run: |
+          git config user.name "Presto Bot"
+          git config user.email "presto-bot@noreply"
+          git add data/reply_state.json
+          git diff --cached --quiet || git commit -m "reply: state update [skip ci]"
+          git push
