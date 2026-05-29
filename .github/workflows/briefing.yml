@@ -22,7 +22,7 @@ jobs:
           cache: pip
 
       - run: pip install -r requirements.txt
-      - run: sudo apt-get install -y ffmpeg -q
+      - run: sudo apt-get install -y ffmpeg -q --fix-missing
 
       - name: Générer le Presto du jour
         run: |
