@@ -41,9 +41,10 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PODCAST_TITLE: Presto
           PODCAST_DESCRIPTION: "Briefing matinal francophone québécois : actualité, politique, économie, marchés et tech en 15 à 18 minutes. Les épisodes restent disponibles 7 jours."
-          PODCAST_BASE_URL: https://prestopodcast.online
+          PODCAST_BASE_URL: https://www.prestopodcast.online
           PODCAST_ARTWORK_URL: https://www.prestopodcast.online/artwork-v2.jpg
           PODCAST_AUTHOR: Presto
+          PODCAST_OWNER_EMAIL: prestopodcast@gmail.com
           EPISODE_TITLE_PREFIX: "Presto — édition du"
           SYSTEM_PROMPT_FILE: prompts/system_presto_v1.md
           CLAUDE_MODEL: claude-sonnet-4-6

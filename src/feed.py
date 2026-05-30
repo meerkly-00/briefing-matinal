@@ -33,6 +33,9 @@ def _create_channel(title, description, base_url, author, artwork_url):
     SubElement(channel, "language").text = "fr-CA"
     SubElement(channel, "link").text = base_url
     SubElement(channel, f"{{{_ITUNES_NS}}}author").text = author
+    owner = SubElement(channel, f"{{{_ITUNES_NS}}}owner")
+    SubElement(owner, f"{{{_ITUNES_NS}}}name").text = author
+    SubElement(owner, f"{{{_ITUNES_NS}}}email").text = os.getenv("PODCAST_OWNER_EMAIL", "prestopodcast@gmail.com")
     SubElement(channel, f"{{{_ITUNES_NS}}}explicit").text = "no"
     SubElement(channel, f"{{{_ITUNES_NS}}}type").text = "episodic"
     cat = SubElement(channel, f"{{{_ITUNES_NS}}}category", {"text": "News"})

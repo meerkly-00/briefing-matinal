@@ -4,8 +4,12 @@
     <title>Presto</title>
     <description>Briefing matinal francophone québécois : actualité, politique, économie, marchés et tech en 15 à 18 minutes. Mis à jour chaque matin. Les épisodes restent disponibles 7 jours.</description>
     <language>fr-CA</language>
-    <link>https://prestopodcast.online</link>
+    <link>https://www.prestopodcast.online</link>
     <itunes:author>Presto</itunes:author>
+    <itunes:owner>
+      <itunes:name>Presto</itunes:name>
+      <itunes:email>prestopodcast@gmail.com</itunes:email>
+    </itunes:owner>
     <itunes:explicit>no</itunes:explicit>
     <itunes:type>episodic</itunes:type>
     <itunes:category text="News">
@@ -15,7 +19,7 @@
     <image>
       <url>https://www.prestopodcast.online/artwork-v2.jpg</url>
       <title>Presto</title>
-      <link>https://prestopodcast.online</link>
+      <link>https://www.prestopodcast.online</link>
     </image>
     <item>
       <title>Presto — édition du 29 mai 2026</title>
