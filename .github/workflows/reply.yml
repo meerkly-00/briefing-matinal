@@ -1,9 +1,12 @@
 name: Presto — reply watcher
 
+# DÉSACTIVÉ : la recherche de tweets (search_recent_tweets) exige le tier X API
+# Basic (~100 $US/mois). Sur le tier gratuit elle renvoie 401 Unauthorized.
+# Réactiver le cron ci-dessous SEULEMENT si tu passes au tier payant.
 on:
-  schedule:
-    - cron: '*/30 * * * *'   # toutes les 30 min, 24h/24
-  workflow_dispatch:           # bouton Run manuel
+  # schedule:
+  #   - cron: '*/30 * * * *'   # toutes les 30 min, 24h/24
+  workflow_dispatch:           # bouton Run manuel uniquement
 
 permissions:
   contents: write
@@ -32,9 +35,9 @@ jobs:
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
           CLAUDE_MODEL: claude-haiku-4-5-20251001
-          REPLY_MAX_PER_RUN: "2"
-          REPLY_MAX_PER_DAY: "30"
-          REPLY_MIN_LIKES: "3"
+          REPLY_MAX_PER_RUN: "1"
+          REPLY_MAX_PER_DAY: "8"
+          REPLY_MIN_LIKES: "5"
 
       - name: Sauvegarder l'état
         run: |
