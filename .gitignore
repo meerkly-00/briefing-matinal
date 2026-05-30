@@ -6,4 +6,3 @@ __pycache__/
 .venv/
 venv/
 output/audio/*.mp3
-output/scripts/*.xml

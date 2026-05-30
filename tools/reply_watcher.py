@@ -13,7 +13,7 @@ import logging
 import os
 import random
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
@@ -28,7 +28,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 STATE_FILE   = PROJECT_ROOT / "data" / "reply_state.json"
 
 MAX_PER_RUN  = int(os.getenv("REPLY_MAX_PER_RUN", "2"))
-MAX_PER_DAY  = int(os.getenv("REPLY_MAX_PER_DAY", "30"))
+MAX_PER_DAY  = int(os.getenv("REPLY_MAX_PER_DAY", "8"))
 MIN_LIKES    = int(os.getenv("REPLY_MIN_LIKES", "3"))
 
 # Topics de base — enrichis chaque matin par le briefing du jour
@@ -55,16 +55,22 @@ Ton style : neutre, précis, jamais opiniatif. Tu apportes de la valeur factuell
 Tweet auquel tu réponds :
 \"\"\"{tweet_text}\"\"\"
 
-Contexte récent de Presto sur ce type de sujet :
+Contexte factuel disponible (issu des briefings Presto récents) :
 {context}
 
-Rédige UNE réponse en français québécois (max 220 chars) qui :
-- Ajoute 1-2 faits concrets ou chiffres que le tweet ne mentionne pas
-- Est directe — commence par le fait, pas par "Selon Presto" ou "Saviez-vous"
-- Termine par : -> prestopodcast.online
-- Ton neutre, factuel, jamais condescendant
+Rédige UNE réponse en français québécois (max 200 chars) qui ajoute un fait concret
+utile à la conversation.
 
-Réponds avec le texte du reply UNIQUEMENT.
+RÈGLES STRICTES :
+- N'utilise QUE des faits présents dans le contexte ci-dessus. N'invente JAMAIS de
+  chiffre, de date, de nom ou de statistique.
+- Si le contexte ne contient aucun fait pertinent au tweet, OU si le tweet est une
+  blague, une insulte, du sarcasme, un troll, ou n'appelle aucun fait, réponds
+  EXACTEMENT « SKIP » et rien d'autre.
+- Commence par le fait, pas par "Selon Presto" ni "Saviez-vous".
+- Ton neutre, factuel, jamais condescendant. Pas de lien, pas de hashtag, pas d'emoji.
+
+Réponds avec le texte du reply UNIQUEMENT (ou « SKIP »).
 """
 
 
@@ -91,9 +97,9 @@ def daily_count(state: dict) -> int:
 
 def increment_daily(state: dict):
     state["daily"][today()] = daily_count(state) + 1
-    # Purge les entrées > 3 jours
-    cutoff = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    state["daily"] = {k: v for k, v in state["daily"].items() if k >= cutoff[:7]}
+    # Purge les entrées de plus de 3 jours (fenêtre glissante réelle)
+    keep = {(datetime.now(timezone.utc) - timedelta(days=d)).strftime("%Y-%m-%d") for d in range(3)}
+    state["daily"] = {k: v for k, v in state["daily"].items() if k in keep}
 
 
 # ── Topics dynamiques ───────────────────────────────────────────────────────
@@ -225,18 +231,27 @@ def main():
                  best["username"], best["score"], best["followers"],
                  best["text"][:80])
 
-        # Génère la réponse
+        # Génère la réponse — on neutralise les délimiteurs pour éviter l'injection
+        safe_tweet = best["text"].replace('"', "'").replace("{", "").replace("}", "")
         try:
             msg = claude.messages.create(
                 model=os.getenv("CLAUDE_MODEL", "claude-haiku-4-5-20251001"),
                 max_tokens=130,
                 messages=[{"role": "user", "content": REPLY_PROMPT.format(
-                    tweet_text=best["text"], context=context or "Aucun contexte disponible."
+                    tweet_text=safe_tweet, context=context or "Aucun contexte disponible."
                 )}],
             )
-            reply_text = msg.content[0].text.strip()
+            reply_text = msg.content[0].text.strip().strip('"')
         except Exception as e:
             log.error("   Erreur Claude : %s", e)
+            continue
+
+        # Garde-fous : SKIP (aucun fait pertinent / tweet non factuel) ou longueur invalide
+        if reply_text.upper().startswith("SKIP") or len(reply_text) < 15:
+            log.info("   SKIP — aucun fait pertinent ou tweet non factuel.")
+            continue
+        if len(reply_text) > 270:
+            log.info("   Reply trop long (%d chars), skip.", len(reply_text))
             continue
 
         log.info("   Reply (%d chars) : %s", len(reply_text), reply_text)
@@ -256,12 +271,14 @@ def main():
                 increment_daily(state)
                 save_state(state)
                 posted += 1
-                time.sleep(8)
+                time.sleep(random.randint(20, 90))  # délai variable = moins "bot"
             except Exception as e:
                 log.error("   Erreur posting : %s", e)
 
     log.info("── Run terminé : %d reply(ies) postés, %d aujourd'hui au total.",
              posted, daily_count(state))
+    # Borne topics_used pour ne pas faire enfler le state indéfiniment
+    state["topics_used"] = state.get("topics_used", [])[-len(all_topics):]
     save_state(state)
 
 

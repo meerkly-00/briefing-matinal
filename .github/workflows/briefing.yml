@@ -67,20 +67,23 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publier le tweet du jour
-        run: python tools/tweet.py "output/scripts/$DATE.xml"
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
-          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
-          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-          CLAUDE_MODEL: claude-haiku-4-5-20251001
+      # NB: le tweet quotidien est désormais publié par tweet.yml à 8h EDT,
+      # à partir du script committé ci-dessous (output/scripts/$DATE.xml).
 
-      - name: Sauvegarder feed.xml et contexte
+      - name: Sauvegarder feed.xml, contexte et script
         run: |
           git config user.name "Presto Bot"
           git config user.email "presto-bot@noreply"
-          git add feed.xml data/context.json
+          git add feed.xml data/context.json "output/scripts/$DATE.xml"
           git diff --cached --quiet || git commit -m "presto: $DATE [skip ci]"
           git push
+
+      - name: Alerte si échec
+        if: failure()
+        run: |
+          gh issue create \
+            --title "⚠️ Briefing Presto échoué — $DATE" \
+            --body "Le workflow briefing a échoué. Voir le run : $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --label "incident" 2>/dev/null || echo "::error::Briefing échoué pour $DATE (création d'issue impossible)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

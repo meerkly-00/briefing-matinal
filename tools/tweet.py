@@ -23,7 +23,7 @@ Règles strictes :
 - Commence directement par le fait, pas par "Aujourd'hui" ou "Dans le briefing"
 - Chiffres bruts si possible (ex: "4 morts", "86e jour", "10x la vitesse du son")
 - Pas de hashtags
-- Termine par : ▶ prestopodcast.online
+- Termine par : -> prestopodcast.online
 - Ton neutre, factuel, percutant
 
 Réponds avec le tweet uniquement, rien d'autre.
@@ -68,7 +68,19 @@ def main():
 
     script_xml = script_path.read_text(encoding="utf-8")
     print("Génération du tweet...")
-    tweet_text = extract_tweet(script_xml)
+    tweet_text = extract_tweet(script_xml).strip().strip('"')
+
+    # Garde-fou longueur : X rejette tout tweet > 280 caractères (erreur 403)
+    if len(tweet_text) > 280:
+        print(f"Tweet trop long ({len(tweet_text)} chars), troncature à la dernière phrase complète.",
+              file=sys.stderr)
+        cut = tweet_text[:280]
+        # On coupe à la dernière frontière de phrase pour ne pas tronquer en plein mot
+        for sep in (". ", " "):
+            if sep in cut:
+                cut = cut.rsplit(sep, 1)[0] + ("." if sep == ". " else "")
+                break
+        tweet_text = cut.strip()
 
     print(f"\nTweet ({len(tweet_text)} chars):\n{tweet_text}\n")
 

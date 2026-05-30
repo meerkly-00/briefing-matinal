@@ -1,0 +1,67 @@
+name: Presto — tweet du jour
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 8h EDT (UTC-4) — 7h en EST l'hiver (GitHub cron ne gère pas le DST)
+  workflow_dispatch:        # bouton Run manuel
+
+permissions:
+  contents: write
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Publier le tweet du jour
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          echo "DATE=$DATE" >> $GITHUB_ENV
+          if [ ! -f "output/scripts/$DATE.xml" ]; then
+            echo "::warning::Pas de script pour $DATE (briefing pas encore publié). Skip."
+            exit 0
+          fi
+          if [ -f "data/tweeted/$DATE" ]; then
+            echo "Tweet déjà publié pour $DATE. Skip."
+            exit 0
+          fi
+          python tools/tweet.py "output/scripts/$DATE.xml"
+          mkdir -p data/tweeted && touch "data/tweeted/$DATE"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          CLAUDE_MODEL: claude-haiku-4-5-20251001
+
+      - name: Marquer comme publié
+        if: success()
+        run: |
+          if [ -f "data/tweeted/$DATE" ]; then
+            git config user.name "Presto Bot"
+            git config user.email "presto-bot@noreply"
+            git add "data/tweeted/$DATE"
+            git diff --cached --quiet || git commit -m "tweet: $DATE [skip ci]"
+            git push
+          fi
+
+      - name: Alerte si échec
+        if: failure()
+        run: |
+          gh issue create \
+            --title "⚠️ Tweet Presto échoué — $DATE" \
+            --body "Le workflow tweet a échoué. Voir le run : $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            --label "incident" 2>/dev/null || echo "::error::Tweet échoué pour $DATE (création d'issue impossible)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
