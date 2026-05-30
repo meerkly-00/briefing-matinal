@@ -77,6 +77,7 @@ jobs:
           git config user.email "presto-bot@noreply"
           git add feed.xml data/context.json "output/scripts/$DATE.xml"
           git diff --cached --quiet || git commit -m "presto: $DATE [skip ci]"
+          git pull --rebase origin main
           git push
 
       - name: Alerte si échec
