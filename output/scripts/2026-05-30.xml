@@ -1,0 +1,89 @@
+```xml
+<script>
+  <intro>Bonjour, on est le samedi 30 mai 2026. Voici votre Presto en environ 17 minutes. Au menu ce matin : l'Iran toujours sans accord, la guerre en Ukraine qui s'intensifie, l'élimination du Canadien de Montréal, la récession technique au Canada et ses suites, la tech avec SpaceX et Nvidia, la politique canadienne avec la Chine et les sous-marins, et quelques nouvelles du Québec.</intro>
+
+  <chapitre titre="International : Iran et Proche-Orient">
+On commence par l'Iran, dossier que nous suivons depuis plusieurs jours. Après une semaine de négociations intenses, aucun accord n'a été conclu vendredi soir entre Washington et Téhéran. Selon la BBC, le président Trump a tenu une rencontre avec ses conseillers pour prendre ce qu'il avait lui-même qualifié de "détermination finale" sur un éventuel accord nucléaire. À l'issue de cette réunion, aucune annonce n'a été faite. Selon l'Associated Press, Trump continue de peser ses options sans avoir encore décidé d'aller de l'avant.
+
+De son côté, Téhéran maintient que les négociations se poursuivent et qu'aucun accord final n'existe pour l'instant, d'après Al Jazeera, qui rapporte que ce samedi marque le 92e jour du conflit. Bloomberg rapporte que les signaux contradictoires de Trump tiennent les marchés en attente de clarté. Sur ce front, les prix du pétrole ont baissé cette semaine en raison d'espoirs de réouverture du détroit d'Ormuz, selon le Financial Times.
+
+Toujours dans la région, le premier ministre israélien Benjamin Netanyahu a confirmé vendredi que les forces israéliennes ont avancé au nord de la rivière Litani au Liban, selon CBC. Israël a demandé à des milliers de Libanais supplémentaires d'évacuer leurs villages. Par ailleurs, l'ONU a inscrit Israël pour la première fois sur sa liste noire des parties impliquées dans des violences sexuelles en temps de guerre. Israël rejette ces allégations, d'après la BBC.
+
+Sur le front européen, un drone russe visant l'Ukraine a touché un immeuble résidentiel en Roumanie, faisant deux blessés, selon l'Associated Press. L'OTAN et l'Union européenne ont condamné cet incident. La Roumanie estime que le drone a probablement été atteint par ses défenses aériennes au-dessus de l'Ukraine avant de dévier de sa trajectoire, indique la BBC. Pendant ce temps, le président ukrainien Zelensky a prévenu que la Russie prépare une attaque de grande envergure, d'après Reuters. Du côté des frappes ukrainiennes, Al Jazeera rapporte que des drones ukrainiens ont ciblé une installation pétrolière russe, laissant 13 000 résidents de Zaporizhzhia sans électricité.
+  </chapitre>
+
+  <chapitre titre="Politique canadienne">
+Côté politique canadienne, plusieurs dossiers importants ont évolué vendredi.
+
+D'abord, le ministre des Affaires étrangères Anita Anand a reçu à Ottawa le ministre des Affaires étrangères de la Chine pour sa première visite au Canada en une décennie. Selon le National Post, le Canada vise à augmenter ses exportations vers la Chine de 50 % d'ici 2030. La visite s'inscrit dans un contexte de réalignement commercial mondial provoqué en partie par les tarifs américains. En parallèle, le National Post rapporte que la Chine a réagi avec fermeté au passage d'un navire de guerre canadien dans le détroit de Taïwan, accusant les pays étrangers de miner sa souveraineté et sa sécurité sous couvert de liberté de navigation.
+
+Sur le dossier de la défense, CBC rapporte que l'Allemagne et la Norvège intensifient leur candidature pour le contrat de sous-marins du Canada. Les deux pays proposent le sous-marin de type 212CD dans le cadre d'une flotte partagée au sein de l'OTAN. Ils ont même cédé des créneaux de production pour accélérer les délais de livraison, dans le but de contrer l'avantage que possède la Corée du Sud pour ce contrat.
+
+Par ailleurs, le premier ministre Mark Carney a eu un entretien avec le pape Léon XIV sur l'intelligence artificielle. Selon CBC, les deux dirigeants ont discuté de l'impératif que l'IA doit servir l'humanité. Cette conversation survient quelques jours après que le pape a demandé aux gouvernements de ralentir le développement des systèmes d'IA.
+
+Enfin, Radio-Canada rapporte que le gouvernement fédéral abolit le Bureau de la consommation, un organisme qui finançait des groupes de défense des droits des consommateurs. Plusieurs organismes perdront ainsi leur aide financière.
+
+Une autre nouvelle canadienne : La Presse rapporte qu'un homme de la région de Toronto, Kenneth Law, a plaidé coupable vendredi à 14 chefs d'accusation d'aide au suicide devant un tribunal ontarien. Cet homme est accusé d'avoir vendu en ligne des substances mortelles à des personnes vulnérables. Des familles de victimes britanniques demandent également qu'il soit mis en cause pour 79 décès au Royaume-Uni, selon la BBC.
+
+Sur la question autochtone, la CBC et La Presse rapportent qu'un tribunal international, le Tribunal permanent des peuples, a conclu au terme d'une semaine d'audiences à Montréal que les politiques actuelles du gouvernement canadien constituent un génocide en cours contre les peuples autochtones. Le gouvernement canadien n'a pas encore réagi publiquement à cette décision.
+  </chapitre>
+
+  <chapitre titre="Économie et marchés">
+La récession technique au Canada annoncée jeudi continue de faire les manchettes ce matin. Bloomberg et Reuters confirment que c'est la première récession technique du Canada depuis 2020, après deux trimestres consécutifs de contraction du produit intérieur brut réel. L'économie a stagné au premier trimestre de 2026.
+
+Un contraste intéressant se dégage cette semaine entre les banques et l'économie réelle. Bloomberg titre que les banques canadiennes n'ont jamais été en aussi bonne santé financière, alors même que l'économie traverse des turbulences. Ce paradoxe alimente les débats sur la nature de la récession et sur qui en absorbe les chocs.
+
+Du côté des marchés américains, Reuters et le Wall Street Journal rapportent que Wall Street a clôturé vendredi à de nouveaux sommets. Les bourses américaines ont enregistré leur plus longue série de gains hebdomadaires depuis 2023, selon le Financial Times. Les marchés ont été portés par la vigueur du secteur technologique et par les espoirs d'un accord avec l'Iran.
+
+Un résultat trimestriel a retenu l'attention : selon Reuters, les actions de Dell Technologies ont progressé de 30 % vendredi après la publication de résultats qui ont dépassé les attentes, portés par la demande en serveurs d'intelligence artificielle et par des hausses de prix.
+
+Du côté de la politique monétaire américaine, Reuters rapporte que plusieurs membres de la Réserve fédérale envisagent une possible hausse du taux directeur, en raison d'une résurgence des risques d'inflation. La Fed n'a pas encore pris de décision formelle.
+
+En Europe, les six plus grandes économies de l'Union européenne se sont entendues sur un cadre de supervision des marchés de capitaux, d'après Reuters.
+
+Au Japon, le Wall Street Journal confirme que Tokyo a procédé à des interventions sur le marché des changes au cours du dernier mois, pour un montant record, pour soutenir le yen.
+
+Enfin, la Banque d'Angleterre a indiqué vendredi qu'elle pourrait tolérer une inflation plus élevée afin de soutenir l'économie britannique, selon Bloomberg. Son gouverneur Andrew Bailey a toutefois précisé qu'un cessez-le-feu au Moyen-Orient ne suffirait pas à dissiper l'incertitude économique, d'après le Financial Times.
+  </chapitre>
+
+  <chapitre titre="Tech">
+Un mot sur la technologie. Deux contrats majeurs pour SpaceX dominent l'actualité. Selon TechCrunch, le gouvernement américain a attribué à SpaceX 6,45 milliards de dollars en contrats avec la Space Force dans la période précédant le premier appel public à l'épargne de l'entreprise, qui pourrait être la plus grande introduction en bourse de l'histoire. Par ailleurs, The Verge rapporte que le Pentagone a accordé à SpaceX un contrat de 4,16 milliards de dollars pour construire des satellites de détection de missiles dans le cadre du projet de bouclier antimissile baptisé Golden Dome, un système défensif annoncé par le président Trump.
+
+Du côté des puces informatiques, Nvidia, Microsoft et Arm teasent conjointement l'annonce de nouvelles puces pour ordinateurs portables basées sur l'architecture Arm, selon The Verge. Nvidia tiendra un discours principal à la conférence Computex à Taipei dimanche soir, où il est attendu qu'il annonce ses nouvelles puces N1 et N1X.
+
+Sur le front de l'intelligence artificielle et de l'emploi, TechCrunch soulève un débat qui prend de l'ampleur dans l'industrie : des programmeurs refusent désormais de travailler sans outils d'IA, mais des chercheurs mettent en garde contre le fait que cette dépendance produit du code plus rapidement sans nécessairement le rendre meilleur. TechCrunch rapporte par ailleurs que ClickUp a récemment réduit son personnel de 22 % pour le remplacer par des agents d'IA, et que les mises à pied dans le secteur technologique en 2026 sont déjà proches des niveaux de l'ensemble de 2025.
+
+Côté cybersécurité, Ars Technica rapporte que les autorités néerlandaises ont démantelé un réseau de machines compromises, un botnet, comprenant plus de 17 millions d'appareils gérés par 200 serveurs. L'opération a été menée conjointement par la police et le Centre national de cybersécurité des Pays-Bas.
+
+Enfin, Microsoft a décalé le lancement de son jeu vidéo Fable, d'abord prévu à l'automne 2026, à février 2027, afin d'éviter une collision dans le calendrier avec la sortie de Grand Theft Auto VI, selon The Verge.
+  </chapitre>
+
+  <chapitre titre="Actualité québécoise">
+Au Québec, la nuit de vendredi à samedi a été marquée par des orages violents. Radio-Canada rapporte que près de 75 000 foyers ont été privés d'électricité, la région de l'Outaouais étant la plus touchée.
+
+À Montréal, la Ville demande à plus d'un million de résidants de réduire leur consommation d'eau cet été, en raison de la détérioration d'une importante conduite dans le réseau de distribution, d'après La Presse.
+
+Sur le plan politique québécois, la Loi sur la clarté référendaire est au centre d'un débat qui s'est intensifié cette semaine. Le Devoir publie ce matin plusieurs textes d'opinion sur la question, qui tourne autour de la position du premier ministre Mark Carney. Des chroniqueurs font valoir que Carney se réfugie derrière la Loi sur la clarté pour répondre aux velléités souverainistes, et que ce faisant il néglige la relation avec le Québec en se concentrant sur l'unité canadienne en Alberta. D'autres soulignent l'absurdité de cette loi héritée de l'ère Chrétien. La question de la majorité requise pour qu'un référendum soit jugé valable reste au coeur du débat.
+
+Du côté de Québec solidaire, La Presse rapporte que la cheffe parlementaire Ruba Ghazal a défendu vendredi sa vision économique, soutenant qu'une économie prospère passe par un réinvestissement dans les services publics. Les Affaires souligne ce même positionnement.
+
+Bonne nouvelle pour la protection de la jeunesse : selon La Presse, le ministère de la Santé et des Services sociaux rapporte une diminution de 56 % des fouilles complètes dans les centres de réadaptation pour jeunes entre avril 2025 et mars 2026. La directrice nationale de la protection de la jeunesse, Lesley Hill, dit vouloir réduire davantage le recours à ces pratiques.
+
+Par ailleurs, Radio-Canada rapporte que le Japon prévoit de déployer des missiles sol-air sur l'île de Yonaguni d'ici 2031, transformant cette île paradisiaque en avant-poste militaire dans un contexte de tensions avec la Chine. C'est une nouvelle à surveiller pour les équilibres de sécurité en Asie du Pacifique.
+  </chapitre>
+
+  <chapitre titre="Sport">
+Un mot rapide sur le sport. Le Canadien de Montréal est éliminé. Les Hurricanes de la Caroline ont gagné vendredi soir le cinquième match de la finale de la conférence de l'Est par une marque de 4 à 1 en Caroline du Nord, remportant la série quatre victoires à une. Selon CBC, les Hurricanes se rendent ainsi en finale de la Coupe Stanley pour la première fois depuis 2006. Frederik Andersen a été solide dans les buts, selon Sportsnet.
+
+Le CH était classé sixième en séries et avait éliminé les cinquièmes et quatrièmes équipes avant de tomber contre la deuxième. Plusieurs analystes de Sportsnet et de Radio-Canada soulignent que cette élimination, malgré sa douleur, est formatrice pour une jeune équipe dont l'avenir semble prometteur.
+
+Côté baseball, les Blue Jays de Toronto ont battu les Orioles de Baltimore vendredi, remontant à la marque de 500. Sportsnet rapporte que Vladimir Guerrero fils a produit le point gagnant avec un double opportun.
+
+Enfin, Radio-Canada annonce que la Victoire de Montréal défilera ce matin rue Sainte-Catherine avec sa coupe Walter, remportée dans la Ligue professionnelle de hockey féminin.
+
+En Europe, la finale de la Ligue des champions de football se dispute aujourd'hui entre Arsenal et le Paris Saint-Germain. Et à Roland-Garros, Reuters rapporte que le jeune prodige brésilien Fonseca a éliminé Novak Djokovic au tournoi de tennis.
+  </chapitre>
+
+  <outro>Voilà pour ce Presto du samedi 30 mai 2026. Bonne journée, et à demain.</outro>
+</script>
+```
