@@ -251,16 +251,27 @@ def main():
     else:
         episode_date = date.today()
 
-    # Artwork
-    if args.artwork:
-        artwork = Path(args.artwork).resolve()
-    else:
-        artwork = Path(__file__).parent.parent / "artwork-v2.jpg"
-        artwork = artwork.resolve()
+    # Artwork: prefer a valid local file; otherwise download from the live site
+    # (the repo has no committed artwork-v2.jpg — it's served from the website).
+    artwork_url = os.environ.get(
+        "PODCAST_ARTWORK_URL", "https://www.prestopodcast.online/artwork-v2.jpg"
+    )
 
-    if not artwork.exists():
-        print(f"Error: artwork not found: {artwork}", file=sys.stderr)
-        sys.exit(1)
+    def _is_real_image(p: Path) -> bool:
+        # Real JPEGs start with FF D8; a Git LFS pointer / HTML is text.
+        try:
+            with open(p, "rb") as fh:
+                return fh.read(2) == b"\xff\xd8"
+        except OSError:
+            return False
+
+    local_artwork = None
+    if args.artwork:
+        cand = Path(args.artwork).resolve()
+        if cand.exists() and _is_real_image(cand):
+            local_artwork = cand
+        else:
+            print(f"  Note: {cand} unusable, will download instead.", flush=True)
 
     # Step 1: Audio duration
     print("Reading audio duration...", flush=True)
@@ -271,6 +282,20 @@ def main():
     with tempfile.TemporaryDirectory(prefix="presto_yt_") as tmpdir:
         srt_path = Path(tmpdir) / "subtitles.srt"
         mp4_path = Path(tmpdir) / "episode.mp4"
+
+        # Resolve artwork: use valid local file, else download from the website.
+        if local_artwork is not None:
+            artwork = local_artwork
+            print(f"Using local artwork: {artwork}", flush=True)
+        else:
+            import urllib.request
+            artwork = Path(tmpdir) / "artwork.jpg"
+            print(f"Downloading artwork from {artwork_url} ...", flush=True)
+            urllib.request.urlretrieve(artwork_url, str(artwork))
+            if not _is_real_image(artwork):
+                print("Error: downloaded artwork is not a valid image.", file=sys.stderr)
+                sys.exit(1)
+            print(f"  Saved -> {artwork}", flush=True)
 
         # Step 2: Generate SRT
         print("Generating SRT subtitles...", flush=True)
