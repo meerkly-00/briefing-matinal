@@ -56,8 +56,11 @@ def generate_video(
         "-i", str(audio.resolve()),    # input 1: audio
         "-vf", vf,
         "-c:v", "libx264",
-        "-preset", "slow",
-        "-crf", "22",
+        # Fond statique : ultrafast donne une qualité visuelle identique
+        # (rien ne bouge sauf les sous-titres) en ~5x moins de temps d'encodage.
+        "-preset", "ultrafast",
+        "-crf", "23",
+        "-tune", "stillimage",
         "-pix_fmt", "yuv420p",
         "-c:a", "aac",
         "-b:a", "192k",
