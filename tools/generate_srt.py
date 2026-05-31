@@ -8,6 +8,7 @@ Usage:
 
 import sys
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 
 CHAPTER_PAUSE = 0.3  # seconds between chapters
@@ -46,8 +47,18 @@ def parse_script(xml_path: str) -> list[dict]:
     Parse the XML script and return a flat list of blocks.
     Each block: {"type": "text"|"chapter_title", "text": str}
     """
-    tree = ET.parse(xml_path)
-    root = tree.getroot()
+    # Le LLM entoure parfois le script de fences markdown (```xml ... ```).
+    # On nettoie avant de parser pour éviter ParseError.
+    raw = Path(xml_path).read_text(encoding="utf-8").strip()
+    if raw.startswith("```"):
+        lines = raw.splitlines()
+        if lines and lines[0].startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].strip().startswith("```"):
+            lines = lines[:-1]
+        raw = "\n".join(lines).strip()
+
+    root = ET.fromstring(raw)
 
     blocks = []
 
