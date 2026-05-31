@@ -290,20 +290,6 @@ def main():
         srt_path = Path(tmpdir) / "subtitles.srt"
         mp4_path = Path(tmpdir) / "episode.mp4"
 
-        # Resolve artwork: use valid local file, else download from the website.
-        if local_artwork is not None:
-            artwork = local_artwork
-            print(f"Using local artwork: {artwork}", flush=True)
-        else:
-            import urllib.request
-            artwork = Path(tmpdir) / "artwork.jpg"
-            print(f"Downloading artwork from {artwork_url} ...", flush=True)
-            urllib.request.urlretrieve(artwork_url, str(artwork))
-            if not _is_real_image(artwork):
-                print("Error: downloaded artwork is not a valid image.", file=sys.stderr)
-                sys.exit(1)
-            print(f"  Saved -> {artwork}", flush=True)
-
         # Step 2: Generate SRT
         print("Generating SRT subtitles...", flush=True)
         blocks = generate_srt.parse_script(str(script_xml))
