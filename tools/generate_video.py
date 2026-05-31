@@ -17,9 +17,10 @@ def generate_video(
     subtitles: Path,
     output: Path,
 ) -> None:
-    # Build subtitle filter style string
+    # Build subtitle filter style string. DejaVu Sans is preinstalled on the
+    # GitHub runner (fonts-dejavu-core) and renders accents correctly.
     subtitle_style = (
-        "FontName=Arial"
+        "FontName=DejaVu Sans"
         ":FontSize=30"
         ":PrimaryColour=&H00FFFFFF"
         ":OutlineColour=&H00000000"
@@ -29,16 +30,19 @@ def generate_video(
         ":MarginV=60"
     )
 
-    # On Windows, backslashes in the subtitles path must be escaped for the
-    # ffmpeg filter string (which uses its own escaping rules).
-    srt_path_str = str(subtitles.resolve()).replace("\\", "/").replace(":", "\\:")
+    # The ffmpeg `subtitles` filter is notoriously fragile with absolute paths
+    # (quoting/escaping of `:`, `\`, spaces differs per platform and breaks the
+    # filtergraph parser). The bulletproof fix: run ffmpeg with cwd set to the
+    # SRT's directory and reference it by bare filename — no path, no quoting.
+    srt_dir = subtitles.resolve().parent
+    srt_name = subtitles.name
 
     # Build the video filter chain
     vf = (
         f"scale=1920:1080:force_original_aspect_ratio=increase,"
         f"crop=1920:1080,"
         f"colorlevels=rimin=0:gimin=0:bimin=0:rimax=0.6:gimax=0.6:bimax=0.6,"
-        f"subtitles='{srt_path_str}':force_style='{subtitle_style}'"
+        f"subtitles={srt_name}:force_style='{subtitle_style}'"
     )
 
     cmd = [
@@ -60,10 +64,12 @@ def generate_video(
 
     print("Running ffmpeg command:")
     print(" ".join(cmd))
+    print(f"(cwd: {srt_dir})")
     print()
 
     with subprocess.Popen(
         cmd,
+        cwd=str(srt_dir),
         stderr=subprocess.PIPE,
         text=True,
         encoding="utf-8",
