@@ -1,0 +1,115 @@
+```xml
+<script>
+  <intro>Bonjour, on est le dimanche 31 mai 2026. Voici votre Presto en environ 17 minutes. Au menu aujourd'hui : l'Iran et le dossier nucléaire, Israël au Liban, l'Ebola et les nouvelles mesures canadiennes aux frontières, la politique canadienne avec un dossier sur l'IA et le bilinguisme, un chapitre économie avec la Chine et les marchés, la tech avec SoftBank en France et quelques nouvelles d'ici, et on termine avec le sport.</intro>
+
+  <chapitre titre="International : Iran et le détroit d'Ormuz">
+Commençons par l'Iran, dossier que nous suivons depuis le début de la semaine. Ce matin, Al Jazeera et Radio-Canada rapportent que le président Trump a durci les termes de la proposition américaine sur la table des négociations. Selon Radio-Canada, Trump affirme avoir obtenu de Téhéran un engagement à ne pas se doter de l'arme nucléaire, mais le texte d'un accord formel n'est pas encore finalisé.
+
+Al Jazeera précise que des officiels américains indiquent que l'Iran pourrait prendre plusieurs jours avant de répondre à ces nouvelles conditions. Trump a déclaré samedi que les pourparlers avancent, je le cite : "slowly but surely". Fin de citation. La prudence reste donc de mise.
+
+En parallèle, la situation dans le détroit d'Ormuz évolue. Le National Post rapporte que le nombre de passages de navires dans le détroit est en hausse, les États-Unis fournissant de l'information aux armateurs pour faciliter le transit. Toujours selon le National Post, les propriétaires de navires se montrent de plus en plus optimistes quant à une reprise du trafic. Par ailleurs, l'Associated Press rapporte que les forces américaines ont frappé un navire commercial qui tentait de franchir le blocus pour rejoindre l'Iran.
+
+Al Jazeera publie ce matin une analyse qui souligne que même si le détroit venait à rouvrir pleinement, la confiance des marchés mondiaux dans la stabilité de la voie maritime pourrait mettre du temps à se rétablir. Le Financial Times, de son côté, rapporte que cette crise dans le Golfe pèse sur l'approvisionnement énergétique de villes industrielles indiennes, notamment ce qu'il décrit comme la "ville de verre" du pays.
+
+En résumé sur ce dossier : Trump dit que les discussions avancent, mais les termes ont été durcis, et Téhéran n'a pas encore répondu. Les marchés maritimes bougent dans la bonne direction, mais aucun accord n'est conclu.
+  </chapitre>
+
+  <chapitre titre="International : Israël et le Liban">
+On reste dans la région. Al Jazeera rapporte ce matin qu'Israël a émis de nouveaux ordres d'évacuation au Liban et que son armée a pris le contrôle du château de Beaufort, un site historique dans le sud du pays. Le ministre israélien de la Défense, Israel Katz, a qualifié cette prise de victoire tactique importante.
+
+Le Devoir rapporte pour sa part que Beyrouth accuse Israël de mener ce qu'elle appelle une politique de la terre brûlée, après de nouvelles frappes dans plusieurs secteurs. Selon Le Devoir, les affrontements sont quasi quotidiens malgré une trêve annoncée le 17 avril qui, selon les mêmes sources, n'aurait jamais été pleinement respectée.
+
+Al Jazeera diffuse également des images montrant des personnes sur une plage à Nahariya, dans le nord d'Israël, qui cherchent à s'abriter lors de tirs de roquettes du Hezbollah. Ces échanges illustrent que le front nord d'Israël reste actif en même temps que l'armée progresse au Liban.
+
+À Jérusalem, Radio-Canada rapporte que des tensions persistent autour de l'esplanade des Mosquées. Le ministre israélien d'extrême droite Itamar Ben-Gvir milite pour un accès accru des juifs au site, ce qui suscite des critiques à l'international.
+  </chapitre>
+
+  <chapitre titre="International : Ebola, Colombie et autres">
+Quelques autres nouvelles internationales ce matin.
+
+Sur l'Ebola d'abord. BBC World et l'Associated Press rapportent que le directeur général de l'Organisation mondiale de la santé, Tedros Adhanom Ghebreyesus, s'est rendu en Ituri, dans l'est de la République démocratique du Congo, épicentre de l'épidémie. Selon CBC World, il a insisté sur l'importance de bâtir la confiance dans les communautés et d'assurer des pratiques d'inhumation sécuritaires pour freiner la propagation du virus. Il a aussi demandé aux pays de reconsidérer leurs interdictions de voyager et de fermeture de frontières, en disant que ces mesures, je le cite : "discourage transparency". Fin de citation. Médecins sans frontières, pour sa part, qualifie la propagation du virus de profondément préoccupante, selon la BBC.
+
+Au Canada, Radio-Canada et La Presse rapportent que le gouvernement a mis en place des mesures spéciales aux frontières jusqu'au 29 août. Les personnes ayant séjourné dans certains pays africains seront évaluées à leur arrivée au pays pour prévenir la propagation de l'Ebola. Le Brésil de son côté, selon Reuters, enquête sur un cas suspect à São Paulo.
+
+En Colombie, la BBC rapporte que des élections présidentielles ont lieu aujourd'hui. Ce scrutin survient après des mois de friction entre le président sortant de gauche, Gustavo Petro, et Donald Trump. Selon la BBC, le résultat de ce vote pourrait redéfinir les relations entre Bogotá et Washington.
+
+Du côté du Japon, BBC World rapporte que le ministre japonais de la Défense, Shinjiro Koizumi, a tenu des propos parmi les plus directs de Tokyo à ce jour au sujet de la montée en puissance militaire du Japon. Il a nié tout retour au militarisme et a critiqué ce qu'il a appelé le "vaste arsenal" de la Chine. Pékin n'a pas encore commenté publiquement.
+
+Enfin, selon le National Post, les alliés de l'AUKUS, soit l'Australie, le Royaume-Uni et les États-Unis, ont annoncé samedi le développement de systèmes de drones sous-marins avancés, approfondissant leur partenariat de sécurité maritime.
+
+Un mot aussi sur la Syrie. Al Jazeera rapporte que les autorités syriennes ont confirmé que les six enfants de la championne d'échecs Rania al-Abbasi, disparus depuis 2013 sous le régime de Bachar al-Assad, sont vraisemblablement morts. Une fin tragique à une affaire qui durait depuis plus d'une décennie.
+  </chapitre>
+
+  <chapitre titre="Politique canadienne">
+Côté politique canadienne, trois dossiers ce matin.
+
+Le premier concerne l'intelligence artificielle, le bilinguisme et la fonction publique fédérale. La Presse rapporte qu'un consultant favorable à l'utilisation de l'IA pour contourner l'obligation de bilinguisme dans la fonction publique fédérale a pu rencontrer de hauts fonctionnaires grâce à une ouverture du premier ministre Mark Carney. La rencontre a soulevé des questions à l'opposition au Parlement, qui s'interroge sur les implications pour le statut du français au sein du gouvernement fédéral. Le dossier n'est pas encore tranché, mais il illustre les tensions entre modernisation technologique et protection des droits linguistiques.
+
+Deuxième dossier : le Bureau de la consommation sera aboli. La Presse rapporte que cet organisme fédéral, chargé de défendre et de promouvoir les intérêts des consommateurs, sera progressivement éliminé d'ici la fin mars 2027, dans le cadre des compressions à Ottawa.
+
+Troisième dossier : en Colombie-Britannique, la conservatrice Kerry-Lynne Findlay a été élue chef du Parti conservateur provincial. Global News rapporte qu'elle a remporté la victoire au quatrième tour de scrutin avec 51 pour cent des voix, soit 4 696 points. Elle succède ainsi à la direction du parti dans la province.
+
+Par ailleurs, Radio-Canada rapporte que l'ambassadrice de l'Union européenne au Canada, Geneviève Tuts, estime que le Canada jouit d'une crédibilité renouvelée en Europe, dans le contexte des tensions commerciales avec les États-Unis. Cette déclaration intervient dans la foulée des visites diplomatiques des derniers jours, dont celle du ministre des Affaires étrangères de la Chine à Ottawa vendredi, que nous avons couverte hier.
+
+Enfin, l'opposant russe Vladimir Kara-Murza était en visite à Ottawa. Radio-Canada rapporte qu'il a appelé le Canada à renforcer son régime de sanctions contre la Russie.
+  </chapitre>
+
+  <chapitre titre="Actualité québécoise">
+Au Québec, deux nouvelles ce matin.
+
+D'abord, une série d'incendies à Val-d'Or préoccupe les autorités. La Presse rapporte que trois personnes, dont un père et sa fille, sont mortes en l'espace de quatre jours lors d'une vague d'incendies en Abitibi-Témiscamingue. La Sûreté du Québec confirme soupçonner un lien avec le crime organisé. L'enquête est en cours.
+
+Ensuite, un anniversaire à noter. Radio-Canada souligne qu'il y a exactement 20 ans, le 31 mai 2006, l'interdiction de fumer dans les bars et les restaurants est entrée en vigueur au Québec et en Ontario. Selon Annie Montreuil, conseillère scientifique à l'Institut national de santé publique du Québec, la proportion de fumeurs chez les adultes de 15 ans et plus est passée de 25 pour cent à environ 11 pour cent depuis cette date. Chez les jeunes, la baisse est encore plus marquée : de 22 pour cent à environ 4 pour cent.
+
+Aussi, une bonne nouvelle pour l'industrie du jeu vidéo québécois. Radio-Canada rapporte que Paralives, un jeu de simulation de vie développé à Québec et surnommé le "Sims québécois", s'est vendu à plus d'un demi-million d'exemplaires depuis son lancement en accès anticipé le 25 mai. Le fondateur Alex Massé, qui avait lancé le projet en solo en 2019 avant de constituer une équipe de 15 personnes, dit que les résultats dépassent ses attentes. Le jeu se distingue notamment par ses mises à jour gratuites et sa ville virtuelle inspirée de Québec.
+
+Enfin, côté langue de travail, Le Devoir rapporte que WestJet exige que ses employés francophones maîtrisent l'anglais. La compagnie dit ignorer la proportion de ses employés qui peuvent s'exprimer en français.
+  </chapitre>
+
+  <chapitre titre="Économie et marchés">
+Côté économie, pas de résultats de marchés à rapporter ce matin puisque les Bourses nord-américaines sont fermées le dimanche. On couvre plutôt quelques signaux macroéconomiques importants des dernières 24 heures.
+
+Premier signal : la Chine. Bloomberg rapporte ce matin que l'activité manufacturière chinoise s'est détériorée en mai, ce qui constitue un avertissement pour l'économie mondiale. Ce chiffre s'inscrit dans un contexte de tensions commerciales persistantes entre Pékin et Washington, et vient s'ajouter aux inquiétudes déjà présentes sur la demande mondiale.
+
+Deuxième signal : l'indépendance des banques centrales. Reuters rapporte que des décideurs réunis ce weekend ont dit que la lutte contre l'inflation continue de mettre sous pression l'autonomie des banques centrales dans plusieurs pays. Ce débat, qui n'est pas nouveau, prend une teinte particulière dans le contexte des pressions politiques exercées dans plusieurs démocraties sur leurs institutions monétaires.
+
+Du côté des tarifs douaniers américains, Le Devoir rapporte que le président Trump prévoit d'interjeter appel d'une décision judiciaire qui autorise les entreprises ayant payé des droits de douane invalidés à demander un remboursement. Un juge fédéral avait ouvert cette possibilité. L'administration conteste et portera la décision en appel.
+
+Enfin, le Financial Times rapporte que les prix du boeuf aux États-Unis ont atteint des niveaux records en raison d'une pénurie historique de bétail. Ce contexte s'ajoute à la pression déjà exercée sur les ménages américains par l'inflation persistante dans certains secteurs de l'alimentation.
+
+À noter aussi que le Canada traverse une récession technique, confirmée jeudi, avec deux trimestres consécutifs de recul du produit intérieur brut réel. Ce contexte reste en toile de fond de l'ensemble de l'actualité économique canadienne.
+  </chapitre>
+
+  <chapitre titre="Tech">
+Un mot sur la technologie, avec deux nouvelles structurantes ce matin.
+
+La première vient du Japon et de la France. TechCrunch et le Financial Times rapportent que SoftBank s'est engagé à investir jusqu'à 75 milliards d'euros pour construire des centres de données en France. L'objectif, selon TechCrunch, est de développer et d'opérer jusqu'à 5 gigawatts de capacité supplémentaire. Il s'agirait du plus grand complexe d'infrastructures d'intelligence artificielle en Europe. L'annonce a été faite en marge d'une rencontre avec le gouvernement français.
+
+La deuxième nouvelle concerne Microsoft et la divulgation de failles de sécurité. The Verge rapporte que Microsoft menace d'intenter des poursuites judiciaires contre une personne utilisant le pseudonyme Nightmare Eclipse, qui a publié publiquement des codes permettant d'exploiter des vulnérabilités dans les produits de l'entreprise. Microsoft a désactivé les comptes de cette personne sur GitHub, GitLab et son propre portail de sécurité. Des experts en cybersécurité, dont Kevin Beaumont selon The Verge, s'interrogent sur la légitimité de cette approche, estimant que la divulgation publique de failles peut forcer les entreprises à agir plus rapidement. Microsoft soutient pour sa part que la divulgation doit passer par des processus de coordination appropriés.
+
+Troisièmement, TechCrunch rapporte que GitHub Copilot, l'assistant de programmation de Microsoft, est en train de passer à une facturation basée sur les tokens, un modèle qui provoque de vives critiques chez les développeurs. Ce changement met fin à l'abonnement forfaitaire qui avait rendu l'outil populaire.
+
+Enfin, Reuters rapporte que les premiers ordinateurs Windows propulsés par des puces Nvidia devraient être présentés la semaine prochaine, selon Axios. Une étape à surveiller dans la convergence entre l'IA et l'informatique personnelle.
+
+Du côté de Google, TechCrunch a mis à l'essai Gemini Spark, un assistant d'intelligence artificielle disponible en continu. Le verdict : utile pour automatiser des tâches quotidiennes, mais TechCrunch note qu'il n'est pas clair pourquoi Google en a fait un produit distinct de ses autres offres Gemini.
+  </chapitre>
+
+  <chapitre titre="Sport">
+On termine avec le sport, une édition chargée ce matin.
+
+En soccer d'abord. Paris Saint-Germain a remporté la finale de la Ligue des champions samedi soir à Budapest, battant Arsenal 1 à 1 en temps réglementaire avant de l'emporter 4 à 3 en tirs au but, selon Sportsnet. C'est le deuxième titre consécutif du PSG en Ligue des champions. En France, les célébrations ont dégénéré en plusieurs endroits. Al Jazeera et BBC World rapportent que le ministère de l'Intérieur français a confirmé 416 arrestations à travers le pays, dont 283 à Paris, après des incidents impliquant des feux d'artifice et des affrontements avec les forces de l'ordre.
+
+En basketball, les San Antonio Spurs accèdent à la finale de la NBA. Sportsnet rapporte que les Spurs ont dominé le Thunder d'Oklahoma City pour remporter la finale de la conférence Ouest. Victor Wembanyama a été nommé joueur le plus utile de cette série de la conférence Ouest. Les Spurs affronteront les Knicks de New York en finale.
+
+Au tennis, Félix Auger-Aliassime est le dernier Canadien encore en lice en simple à Roland-Garros. Sportsnet rapporte qu'il a accédé au seizième de finale. Du côté féminin, la tenante du titre Coco Gauff a été éliminée par Anastasia Potapova. Selon Al Jazeera, Iga Swiatek et Aryna Sabalenka s'affirment comme les principales favorites pour le titre féminin.
+
+Du côté des Blue Jays de Toronto, ce fut une fin de semaine difficile. Sportsnet rapporte deux défaites consécutives, dont une remontée qui s'est terminée en queue de poisson contre Baltimore, et une autre où le lanceur Jeff Hoffman a perdu le contrôle de ses tirs, menant à une défaite cinglante.
+
+Enfin, le Victoire de Montréal, la formation féminine de hockey de la LPHF, a célébré samedi sa première conquête de la Coupe Walter avec un défilé au centre-ville de Montréal. Selon Global News, des milliers de partisanes et partisans étaient présents pour l'occasion.
+
+Au soccer canadien, Sportsnet rapporte que la sélection nationale masculine, qui disputera sa première Coupe du monde dans moins de deux mois, pourrait composer avec une autre blessure. Le joueur Flores aurait subi une blessure apparente le lendemain de l'annonce du groupe, soit vendredi.
+  </chapitre>
+
+  <outro>Voilà pour ce Presto du dimanche 31 mai 2026. Bonne journée, et à demain.</outro>
+</script>
+```
